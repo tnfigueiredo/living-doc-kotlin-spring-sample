@@ -28,6 +28,8 @@ buildscript {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.flywaydb:flyway-core")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -36,6 +38,8 @@ dependencies {
 	testImplementation("net.serenity-bdd:serenity-cucumber:3.6.0")
 	testImplementation("org.junit.vintage:junit-vintage-engine:5.9.2")
 	testImplementation("org.seleniumhq.selenium:selenium-api:4.1.3")
+	testImplementation("io.cucumber:cucumber-spring:7.11.0")
+	testImplementation("com.h2database:h2")
 }
 
 tasks.withType<KotlinCompile> {

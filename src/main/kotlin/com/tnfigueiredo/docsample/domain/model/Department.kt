@@ -1,8 +1,20 @@
 package com.tnfigueiredo.docsample.domain.model
 
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
+
+@Entity(name = "DEPARTMENT")
 data class Department(
-    val id: Number?,
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Int?,
+    @Column
     val name: String,
+    @Column
     val abbreviation: String,
-    val creator: User?
+    @Column
+    val creatorId: Int?
 )

@@ -4,8 +4,9 @@ enum class UserProfile{
     DEPARTMENT_ADMINISTRATOR
 }
 
+
 data class User(
-    val id: Number?,
+    val id: Int?,
     val username: String,
     val profile: UserProfile
 )
