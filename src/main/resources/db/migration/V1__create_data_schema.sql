@@ -4,6 +4,3 @@ create table DEPARTMENT (
     abbreviation varchar(15) not null UNIQUE,
     creatorId int not null
 );
-
-insert into DEPARTMENT(name, abbreviation, creatorId) values('Old Department', 'OLDDPTO', 1);
-commit;

@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
-class SaveDepartmentInformationUseCase {
+class RemoveDepartmentInformationUseCase {
 
     @Autowired
     private lateinit var departmentRepository: DepartmentRepository
-    fun execute(user: User, department: Department): Result<Department> = kotlin.runCatching {
-        departmentRepository.saveAndFlush(department.copy(creatorId = user.id))
+    fun execute(department: Department): Result<Unit> = kotlin.runCatching {
+        departmentRepository.delete(department)
     }
 
 }
