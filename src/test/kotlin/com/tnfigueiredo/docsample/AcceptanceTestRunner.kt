@@ -8,8 +8,7 @@ import org.junit.runner.RunWith
 @RunWith(CucumberWithSerenity::class)
 @CucumberOptions(
     features=["classpath:features"],
-    objectFactory = SpringFactory::class,
-    extraGlue = ["com.tnfigueiredo.docsample"]
+    objectFactory = SpringFactory::class
 )
 class AcceptanceTestRunner {
 }

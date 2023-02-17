@@ -1,6 +1,5 @@
 package com.tnfigueiredo.docsample.bdd.department
 
-import com.tnfigueiredo.docsample.config.CucumberSpringConfiguration
 import com.tnfigueiredo.docsample.domain.model.Department
 import com.tnfigueiredo.docsample.domain.model.User
 import com.tnfigueiredo.docsample.domain.model.UserProfile
@@ -10,11 +9,15 @@ import io.cucumber.java.After
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
+import io.cucumber.spring.CucumberContextConfiguration
 import org.junit.jupiter.api.Assertions.*
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.dao.DataIntegrityViolationException
 
-class DepartmentStepsDefinition: CucumberSpringConfiguration() {
+@SpringBootTest
+@CucumberContextConfiguration
+class DepartmentStepsDefinition{
 
     @Autowired
     private lateinit var saveDepartmentInformationUseCase: SaveDepartmentInformationUseCase;
