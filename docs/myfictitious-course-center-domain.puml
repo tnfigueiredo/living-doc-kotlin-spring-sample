@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+User o-- Role
+Department "*" *-- "*" Course: manages
+Student "*" -- "*" Course : participates
+User .. Department : member of
+User .. Student : is a
+
+class Department {
+String code
+String name
+Boolean active
+createCourse()
+deactivateCourse()
+createStudent()
+deactivateStudent()
+getCoursesByDepartment()
+getCoursesGradeByStudent()
+}
+
+class Course {
+String code
+String name
+Boolean active
+}
+
+class Student {
+String name
+String registrationNumber
+enrollCourse()
+cancelCourse()
+getGradesByCourse()
+getCoursesEnrolled()
+}
+
+class User {
+String username
+String password
+Role[] roles
+}
+
+enum Role {
+DEPARTMENT_ADMIN
+DEPARTMENT_OFFICER
+STUDENT
+}
+
+@enduml

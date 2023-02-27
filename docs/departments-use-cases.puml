@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+:Department Administrator: as Admin
+:Department Officer: as Officer
+
+Admin -> (Manage Departments)
+Admin -> (Manage Students)
+Officer -> (Manage Students)
+Admin ---> (Report courses by department)
+Officer ---> (Report courses by department)
+
+note left of (Admin)
+The Department Administrator is
+related to those features to support
+student administrative services.
+end note
+
+note left of (Officer)
+The Department Officer handles minor
+tasks on the department. It is possible
+to see better in the other features.
+end note
+
+@enduml

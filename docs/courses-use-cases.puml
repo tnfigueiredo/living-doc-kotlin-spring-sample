@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+:Department Administrator: as Admin
+:Department Officer: as Officer
+(Report for students course grades) as (Report grades)
+
+Student ---> (Report grades)
+Officer ---> (Report grades)
+Admin ---> (Report grades)
+
+Admin -> (Create Course)
+Admin -> (Deactivate Course)
+Officer -> (Create Course)
+Officer -> (Deactivate Course)
+
+
+note bottom of (Admin)
+The Department Administrator and Officer are
+related to those features to support
+student administrative services.
+end note
+
+@enduml
