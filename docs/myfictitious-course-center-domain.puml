@@ -1,11 +1,14 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-User o-- Role
-Department "*" *-- "*" Course: manages
+User o-r- Role
+Department "*" *-d- "*" Subject: owns
+Subject "*" -- "1" Course: is taught by
 Student "*" -- "*" Course : participates
-User .. Department : member of
-User .. Student : is a
+Student "*" -- "0..1" Evaluation : do
+Course "*" -r- "0..1" Evaluation : applies
+User .l. Department : member of
+User <|-- Student : is a
 
 class Department {
 String code
@@ -23,6 +26,19 @@ class Course {
 String code
 String name
 Boolean active
+Date startDate
+Date endDate
+}
+
+class Subject {
+String description
+String acronym
+}
+
+class Evaluation {
+String description
+Number grade
+DateTime date
 }
 
 class Student {
