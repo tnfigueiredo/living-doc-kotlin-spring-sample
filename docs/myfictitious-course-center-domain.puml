@@ -1,65 +1,79 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-User o-r- Role
+Employee o-r- Role
+Student o-r- Role
 Department "*" *-d- "*" Subject: owns
 Subject "*" -- "1" Course: is taught by
-Student "*" -- "*" Course : participates
+Student "*" -l- "*" Course : participates
+Employee "*" -d- "*" Course : manages
 Student "*" -- "0..1" Evaluation : do
-Course "*" -r- "0..1" Evaluation : applies
-User .l. Department : member of
+Employee "*" -r- "0..1" Evaluation : applies
+Employee .l. Department : member of
+User <|-u- Employee : is a
 User <|-- Student : is a
 
 class Department {
-String code
-String name
-Boolean active
-createCourse()
-deactivateCourse()
-createStudent()
-deactivateStudent()
-getCoursesByDepartment()
-getCoursesGradeByStudent()
++code: String
++name: String
++active: Boolean
 }
 
 class Course {
-String code
-String name
-Boolean active
-Date startDate
-Date endDate
+-code: String
+-name: String
+-active: Boolean
+-startDate: Date
+-endDate:Date
 }
 
 class Subject {
-String description
-String acronym
++description: String
++acronym: String
 }
 
 class Evaluation {
-String description
-Number grade
-DateTime date
++description: String
++grade: Number
++date: DateTime
 }
 
 class Student {
-String name
-String registrationNumber
-enrollCourse()
-cancelCourse()
-getGradesByCourse()
-getCoursesEnrolled()
+-name: String
+-registrationNumber: String
++role: Role.STUDENT
++enrollCourse()
++cancelCourseParticipation()
++getGradesByCourse()
++getCoursesEnrolled()
+}
+
+class Employee {
++roles: Role[]
++departments: Department[]
++registerStudentEvaluation()
++createCourse()
++deactivateCourse()
++createStudent()
++deactivateStudent()
++getCoursesByDepartment()
++getCoursesGradeByStudent()
 }
 
 class User {
-String username
-String password
-Role[] roles
+-name: String
+-registrationNumber: String
+-username: String
+-password: String
++changePassword()
++resetPassword()
 }
 
 enum Role {
 DEPARTMENT_ADMIN
 DEPARTMENT_OFFICER
 STUDENT
+TEACHER
 }
 
 @enduml
