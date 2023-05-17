@@ -9,9 +9,9 @@ Feature: Report Students By Course
   Scenario: Department Administrator request students by course report
     Given a department administrator needs a new report
     When a report for the "NDPTO" courses is requested
-    Then report having stuents by course is returned
+    Then report having students by course is returned
 
   Scenario: Department Employee request students by course report
     Given a department employee needs a new report
     When a report for the "NDPTO" courses is requested
-    Then report having stuents by course is returned
+    Then report having students by course is returned
