@@ -18,7 +18,8 @@ Feature: Manage Courses
 
     Scenario: Create a course successfully
       Given A department administrator needs to manage course information
-      When it is informed the course information: "MyCourse1", "MyC1", "Programming", "2023-02-18", "2023-06-16"
+      And there is an existing course: "MyCourse1", "MyC1", "Programming", "2023-02-18", "2023-06-16"
+      When it is informed the course information: "MyCourse2", "MyC2", "Programming", "2023-07-18", "2023-12-16"
       Then a course is created successfully
 
   Rule: A course fails to be created if there is duplicated information for Abbreviation, or a course for a subject between the initial and end date already exists.
@@ -35,3 +36,23 @@ Feature: Manage Courses
         | "MyCourse2" | "MyC1"       | "Chemistry"   | "2023-02-20" | "2023-06-25" |
         | "MyCourse2" | "MyC2"       | "Programming" | "2023-02-18" | "2023-06-16" |
 
+  Rule: A course can be canceled if the cancellation date is before its start date.
+
+    Scenario: Create a is cancelled successfully
+      Given A department administrator needs to manage course information
+      And there is an existing course: "MyCourse1", "MyC1", "Programming", "2023-02-18", "2023-06-16"
+      When the course is cancelled at "2023-02-17"
+      Then the course is cancelled successfully
+
+  Rule: A course cannot be canceled if the cancellation date is from its start date on.
+
+    Scenario Outline: Fail to cancel a course with invalid cancellation date information
+      Given A department administrator needs to manage course information
+      And there is an existing course: "MyCourse1", "MyC1", "Programming", "2023-02-18", "2023-06-16"
+      When the course is cancelled at <Cancellation Date>
+      Then course cancellation operation fails
+
+      Examples:
+        | Cancellation Date   |
+        | "2023-02-18" |
+        | "2023-02-20" |
