@@ -7,11 +7,11 @@ Feature: Report Students By Course
   **So that I can** have information of numbers of students by course from a department
 
   Scenario: Department Administrator request students by course report
-    Given A department administrator needs a new report
+    Given a department administrator needs a new report
     When a report for the "NDPTO" courses is requested
     Then report having stuents by course is returned
 
   Scenario: Department Employee request students by course report
-    Given A department employee needs a new report
+    Given a department employee needs a new report
     When a report for the "NDPTO" courses is requested
     Then report having stuents by course is returned
