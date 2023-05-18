@@ -7,7 +7,7 @@ Feature: Course Enrollment
   **So that I can** be guaranteed a place to attend classes
 
   Background: For student course enrollment
-    Given a registered Student is choosing courses
+    Given a Student from MyFictitious Course Center
     And the Student is already registered in a course: "COURSECODE"
 
   Rule: To enroll in a course the student must not have already subscribed to it
