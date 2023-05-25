@@ -57,10 +57,15 @@ describe a set os use cases scope:
 
 ### Expected result over the documentation
 
-[//]: # (mention the document structure)
-
 The expected results is to have a separation of topics according to the project epics (Departments, Students, Courses). The project epics
-will be the starting point to crate the user stories relates to those mapped use cases presented previously.
+will be the starting point to crate the user stories relates to those mapped use cases presented previously. Each use case will be related to a set
+of user stories that will describe the application features. And for each user story there will be available some acceptance 
+criteria that will validate the business rule to be followed. It is possible to consider it will be something like this:
+
+![docs/spec-struct.jpeg](./docs/spec-struct.jpeg)
+
+This structure will be the concept to create the files in the documentation for the BDD test cases and specification. It will
+be explained better when presenting it in the source code project. 
 
 ## Project configuration
 
