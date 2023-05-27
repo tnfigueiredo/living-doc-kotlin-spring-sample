@@ -64,7 +64,8 @@ criteria that will validate the business rule to be followed. It is possible to 
 
 ![docs/spec-struct.jpeg](./docs/spec-struct.jpeg)
 
-This structure will be the concept to create the files in the documentation for the BDD test cases and specification. It will
+This structure will be the concept to create the files in the documentation for the BDD test cases and specification. Since it is common to 
+group the user stories in epics, the layer described as use cases will be not present in the documentation. The files structure will
 be explained better when presenting it in the source code project. 
 
 ## Project configuration
