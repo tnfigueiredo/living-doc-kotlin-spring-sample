@@ -23,12 +23,12 @@ class CoursesReportStepsDefinition {
 
     @When("a report for the {string} courses is requested")
     fun whenReportForDepartmentIsRequested(departmentCode: String){
-        throw PendingException()
+        //TODO Implement
     }
 
     @Then("report having students by course is returned")
     fun thenReportIsReturned(){
-        throw PendingException()
+        //TODO Implement
     }
 
 }

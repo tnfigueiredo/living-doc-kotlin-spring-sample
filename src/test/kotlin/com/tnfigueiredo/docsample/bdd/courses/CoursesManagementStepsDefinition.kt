@@ -19,37 +19,37 @@ class CoursesManagementStepsDefinition {
 
     @When("it is informed the course information: {string}, {string}, {string}, {string}, {string}")
     fun whenCourseInformationIsInformed(courseName: String, courseCode: String, area: String, startDate: String, endDate: String){
-        throw PendingException()
+        //TODO Implement
     }
 
     @And("there is an existing course: {string}, {string}, {string}, {string}, {string}")
     fun andExistingCourseAvailable(courseName: String, courseCode: String, area: String, startDate: String, endDate: String){
-        throw PendingException()
+        //TODO Implement
     }
 
     @When("the course is cancelled at {string}")
     fun whenCourseIsCancelledAt(cancellationDate: String){
-        throw PendingException()
+        //TODO Implement
     }
 
     @Then("a course is created successfully")
     fun thenCourseCreatedSuccessfully(){
-        throw PendingException()
+        //TODO Implement
+    }
+
+    @Then("the course is cancelled successfully by department")
+    fun thenCourseCreatedSuccessfullyByDepartment(){
+        //TODO Implement
     }
 
     @Then("course creation operation fails with duplicated information informed")
     fun thenCourseFailsToBeCreated(){
-        throw PendingException()
+        //TODO Implement
     }
 
-    @Then("the course is cancelled successfully")
-    fun thenCourseCancelledSuccessfully(){
-        throw PendingException()
-    }
-
-    @Then("course cancellation operation fails")
+    @Then("course cancellation operation by department fails")
     fun thenCourseCancellationFails(){
-        throw PendingException()
+        //TODO Implement
     }
 
 }

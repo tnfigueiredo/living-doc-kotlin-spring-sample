@@ -11,6 +11,4 @@ import org.junit.runner.RunWith
     features=["classpath:features"],
     objectFactory = SpringFactory::class
 )
-class AcceptanceTestRunner {
-
-}
+class AcceptanceTestRunner

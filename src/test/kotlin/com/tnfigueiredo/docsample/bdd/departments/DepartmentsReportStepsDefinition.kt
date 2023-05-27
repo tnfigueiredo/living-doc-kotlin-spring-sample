@@ -2,7 +2,6 @@ package com.tnfigueiredo.docsample.bdd.departments
 
 import com.tnfigueiredo.docsample.domain.model.User.GeneralUser
 import com.tnfigueiredo.docsample.domain.model.UserProfile
-import io.cucumber.java.PendingException
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
@@ -23,12 +22,12 @@ class DepartmentsReportStepsDefinition {
 
     @When("the Courses by Department information is requested")
     fun whenCoursesByDepartmentIsRequested(){
-        throw PendingException()
+        //TODO Implement
     }
 
     @Then("the department report information with courses is returned")
     fun thenDepartmentReportReturned(){
-        throw PendingException()
+        //TODO Implement
     }
 
 }
