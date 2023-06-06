@@ -68,28 +68,95 @@ This structure will be the concept to create the files in the documentation for 
 group the user stories in epics, the layer described as use cases will be not present in the documentation. The files structure will
 be explained better when presenting it in the source code project. 
 
-## Project configuration
+## Project configuration and structure
 
-[//]: # (Mention project dependencies and build configuration)
+The project configuration and structure was created based on information found on the official serenity documentation, [official Serenity GitHub 
+repositories](https://github.com/serenity-bdd), and also other additional sources found on the web. The idea was to create the most clean and 
+minimum configuration needed to run the project to allow the report to be generated through an application build.
+
+Starting by the [Gradle dependencies](build.gradle.kts), it is possible to highlight the default tasks configuration, the serenity-gradle-plugin plugin, 
+and the set of dependencies itself. Among the dependencies, it was necessary the junit-vintage-engine because most of the implementation found for the 
+configuration classes were using JUnit4 structures. Without it this was not possible to run the tests integrated to the Gradle build. Besides that it was 
+necessary the test task configuration for running the aggregated step from the serenity plugin after the tests task execution. The resulting build Gradle 
+file was the following one:
+
+´´´Kotlin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+defaultTasks("clean", "test", "aggregate")
+
+plugins { 
+  id("org.springframework.boot") version "3.0.2"
+  id("io.spring.dependency-management") version "1.1.0"
+  id("org.graalvm.buildtools.native") version "0.9.18"
+  id("net.serenity-bdd.serenity-gradle-plugin") version "3.5.0"
+  kotlin("jvm") version "1.7.22"
+  kotlin("plugin.spring") version "1.7.22"
+  kotlin("plugin.jpa") version "1.7.22"
+}
+
+group = "com.tnfigueiredo"
+version = "0.0.1-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_17
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation("org.springframework.boot:spring-boot-starter-web")
+  implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+  implementation("org.flywaydb:flyway-core")
+  implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+  implementation("org.jetbrains.kotlin:kotlin-reflect")
+  implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+  testImplementation("org.springframework.boot:spring-boot-starter-test")
+  testImplementation("net.serenity-bdd:serenity-core:3.7.1")
+  testImplementation("net.serenity-bdd:serenity-cucumber:3.7.1")
+  testImplementation("net.serenity-bdd:serenity-junit5:3.7.1")
+  testImplementation("net.serenity-bdd:serenity-spring:3.7.1")
+  testImplementation("org.junit.vintage:junit-vintage-engine:5.9.2")
+  testImplementation("io.cucumber:cucumber-spring:7.11.0")
+  testImplementation("com.h2database:h2")
+}
+
+tasks.withType<KotlinCompile> {
+  kotlinOptions {
+    freeCompilerArgs = listOf("-Xjsr305=strict")
+    jvmTarget = "17"
+  }
+}
+
+tasks.withType<Test> {
+  useJUnitPlatform()
+  testLogging.showStandardStreams = true
+  finalizedBy("aggregate")
+}
+´´´
 
 ### Document files structure
 
 [//]: # (Mention the Gherkin + test cases integration)
 [//]: # (Show how to create readme files and gherkin files)
 
-## Project build and report results
+### Project build and report results
 
 [//]: # (Show report structure)
 
-## How to integrate living documentation in CI/CD Pipelines
+### How to integrate living documentation in CI/CD Pipelines
 
 [//]: # (Github actions example)
 [//]: # (find somewhere to publish. best approach local docker contianer for the sample)
 
-## How to bring value to your project with this approach
+## Finally:
 
 [//]: # (sprint flow and SLDC software deliverables include docs)
 
-## References
+## Content sources
 
-[//]: # (show url references)
+- https://cucumber.io/docs/bdd/
+- https://cucumber.io/docs/gherkin/reference/
+- https://serenity-bdd.github.io/docs/reporting/living_documentation
+- https://github.com/serenity-bdd
+- https://johnfergusonsmart.com/getting-started-with-serenity-bdd-and-cucumber-4/
+- https://stackoverflow.com/questions/59456120/cannot-run-cucumber-junit-tests-on-gradle
