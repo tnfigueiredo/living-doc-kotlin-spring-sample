@@ -62,7 +62,7 @@ will be the starting point to crate the user stories relates to those mapped use
 of user stories that will describe the application features. And for each user story there will be available some acceptance 
 criteria that will validate the business rule to be followed. It is possible to consider it will be something like this:
 
-![docs/spec-struct.jpeg](./docs/spec-struct.jpeg)
+![docs/spec-struct.jpeg](./docs/img/spec-struct.jpeg)
 
 This structure will be the concept to create the files in the documentation for the BDD test cases and specification. Since it is common to 
 group the user stories in epics, the layer described as use cases will be not present in the documentation. The files structure will
@@ -134,14 +134,131 @@ tasks.withType<Test> {
 }
 ```
 
+Considering this initial project configuration there is the test source code structure and the business specification and BDD files 
+structure. For the test source code there are 3 main components:
+
+- AcceptanceTestRunner: This class has the configuration for the Test Suit runner and the Cucumber configurations. It was used a default 
+configuration that can read the whole Spring context to the dependencies injection for the test context and the path for the 
+feature files.
+- CucumberSpringConfiguration: An empty stub just to enable the Cucumber context for a Spring Test class.
+- StepsDefinition classes: Those classes have the implementation for the Given/When/Them BDD validations related to the description 
+written in the feature files. For this sample, they were grouped according to the Use Case definitions.
+
+![docs/test-source-code-structure.png](./docs/img/test-source-code-structure.png)
+
+Since the idea of this sample is to present what could be a project development iteration, the feature files will have some concrete 
+implemented test cases, and some pending test cases in the master branch. There is one branch that will simulate a successful iteration development with new 
+successful implemented test cases. And there is another branch which will simulate failing test cases implementation. This will allow to make it 
+visible in the Serenity reports the overview of the features to be implemented, and also how it behaves while the features is being developed.
+
 ### Document files structure
 
-[//]: # (Mention the Gherkin + test cases integration)
-[//]: # (Show how to create readme files and gherkin files)
+The sample of this project follows the recommended file structure mentioned on the [Serenity official 
+documentation](https://serenity-bdd.github.io/docs/reporting/living_documentation#the-requirements-hierarchy). This file structure 
+was organized into a hierarchy for Epics and features, being the feature files used to describe a set of User Stories. The Epics are 
+described through "readme.md" files, which bring the Epic business description. The feature files represent the Use Cases description, 
+which will group the User Stories related to that:
+
+![docs/spec-files-structure.png](./docs/img/spec-files-structure.png)
+
+Once the files structure is described it is easier to understand how the Given/When/Then BDD definitions written in the Gherkin files 
+are related to the steps definition implementation. In this sample, the Use Case feature file is related to the StepsDefinition BDD test 
+implementation, except for the Students Epic which has the implementation in a single class:
+
+- manage_courses.feature -> CoursesManagementStepsDefinition.kt
+- report_students_by_course.feature -> CoursesReportStepsDefinition.kt
+- manage_departments.feature -> DepartmentsManagementStepsDefinition.kt
+- report_courses_by_department.feature -> DepartmentsReportStepsDefinition.kt
+- course_enrollment.feature and course_participation_cancellation.feature -> StudentsManagementStepsDefinition.kt
+
+Here follows an example for the mentioned files structure:
+
+- Feature specification
+
+```Gherkin
+Feature: Manage Courses
+
+  A use case description...
+
+  Rule: A business rule...
+
+    Scenario: Create a course successfully
+      Given A department administrator needs to manage course information
+      And there is an existing course: "MyCourse1", "MyC1", "Programming", "2023-02-18", "2023-06-16"
+      When it is informed the course information: "MyCourse2", "MyC2", "Programming", "2023-07-18", "2023-12-16"
+      Then a course is created successfully
+```
+
+- Steps Definition Implementation
+
+```Kotlin
+package com.tnfigueiredo.docsample.bdd.courses
+
+import...
+
+class CoursesManagementStepsDefinition {
+    
+    private lateinit var creator: GeneralUser
+
+    @Given("A department administrator needs to manage course information")
+    fun givenDepartmentAdministratorNeedsManageCourseInformation(){
+        creator = GeneralUser(1, "dptoAdmin", UserProfile.DEPARTMENT_ADMINISTRATOR)
+    }
+
+    @And("there is an existing course: {string}, {string}, {string}, {string}, {string}")
+    fun andExistingCourseAvailable(courseName: String, courseCode: String, area: String, startDate: String, endDate: String){
+        //TODO Implement
+    }
+
+    @When("it is informed the course information: {string}, {string}, {string}, {string}, {string}")
+    fun whenCourseInformationIsInformed(courseName: String, courseCode: String, area: String, startDate: String, endDate: String){
+        //TODO Implement
+    }
+
+    @Then("a course is created successfully")
+    fun thenCourseCreatedSuccessfully(){
+        //TODO Implement
+    }
+}
+```
 
 ### Project build and report results
 
-[//]: # (Show report structure)
+For this sample it was not created any special configuration for the report output folders. Considering so, the project source code 
+remains being generated on the project build folder, while the results for the Serenity reports are generated in the target folder. 
+The resulting report is generated in an HTML files format, into the folder structure ./target/site/serenity:
+
+![docs/build-reports-folder.png](./docs/img/build-reports-folder.png)
+
+It is possible to open the resulting report in a browser through the index.html file generated in the Serenity reports folder. 
+The first view this index.html file presents in the report is an overview about the project test cases grouped by a set os possible 
+status. This overview also presents tests statistics and classification. In the case of this sample by Epic and Features: 
+
+![docs/serenity-reports-overview.png](./docs/img/serenity-reports-overview.png)
+
+The Requirements tab present and overview about the epics and the features classification, together with the test coverage scenario:
+
+![docs/requirements-overview.png](./docs/img/requirements-overview.png)
+
+The Capabilities tab presents the Epics summary test cases:
+
+![docs/epics-summary.png](./docs/img/epics-summary.png)
+
+It is possible to check the "readme.md" epic file description when you click in a Capability:
+
+![docs/epic-description.png](./docs/img/epic-description.png)
+
+The Features tab presents the Features summary test cases:
+
+![docs/features-summary.png](./docs/img/features-summary.png)
+
+When accessing a specific feature it is possible to check the feature description and the summary of its test cases:
+
+![docs/features-description.png](./docs/img/features-description.png)
+
+And if it is accessed a specific test case it is possible to see its execution and description:
+
+![docs/test-case-example.png](./docs/img/test-case-example.png)
 
 ### How to integrate living documentation in CI/CD Pipelines
 
