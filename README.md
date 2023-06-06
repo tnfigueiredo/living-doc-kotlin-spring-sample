@@ -80,7 +80,7 @@ configuration classes were using JUnit4 structures. Without it this was not poss
 necessary the test task configuration for running the aggregated step from the serenity plugin after the tests task execution. The resulting build Gradle 
 file was the following one:
 
-´´´Kotlin
+```Kotlin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 defaultTasks("clean", "test", "aggregate")
@@ -132,7 +132,7 @@ tasks.withType<Test> {
   testLogging.showStandardStreams = true
   finalizedBy("aggregate")
 }
-´´´
+```
 
 ### Document files structure
 
