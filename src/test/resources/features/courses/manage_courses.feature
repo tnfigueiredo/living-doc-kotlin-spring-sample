@@ -11,8 +11,8 @@ Feature: Manage Courses
   **So that I can** update a course information into the department to the students
 
   **As a** Departament Manager
-  **I want to** close an existing course
-  **So that I can** close a course available into the department that was offered to the students
+  **I want to** cancel an existing course
+  **So that I can** make a course not available anymore into the department
 
   Rule: A course can be created if there is no course for a subject between the initial and end date.
 
