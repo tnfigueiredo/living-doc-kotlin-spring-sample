@@ -262,12 +262,31 @@ And if it is accessed a specific test case it is possible to see its execution a
 
 ### How to integrate living documentation in CI/CD Pipelines
 
-[//]: # (Github actions example)
-[//]: # (find somewhere to publish. best approach local docker contianer for the sample)
+If it is taken into consideration that the modern software development approach works over a Continuous Integration and Continuous Delivery (CI/CD) 
+approach, it is impossible not to consider all that was mentioned here outside of this context. Just for a quick recap, a project CI/CD
+cycle will have some steps related to application build and testing. Here is where this proposal matches a CI/CD approach, allowing the project
+to apply a continuous testing approach. Every single delivery cycle will have business requirements, test cases description, project documentation,
+and production product being delivered in the release stage.
+
+![docs/CI-CD.png](./docs/img/CI-CD.png)
+
+The configuration available in the [build file](https://raw.githubusercontent.com/tnfigueiredo/living-doc-kotlin-spring-sample/master/.github/workflows/gradle.yml) 
+is related to the build and test stages commonly represented in the CI/CD pipeline approaches. For reasons of simplification, this project is just
+attaching the bdd reports results to the project build. But it is possible to use the report results to publish it anywhere which is possible of having available 
+HTML content.
 
 ## Finally:
 
-[//]: # (sprint flow and SLDC software deliverables include docs)
+The idea of this sample is to bring some possibilities about how to link your project business documentation together with a project 
+delivery lifecycle, allowing to bring visibility to future features, delivered features, what is being validated as project business 
+behavior. And this can be customized to the project characteristics and project lifecycle behavior. It is possible to have those 
+deliverables every spring, maybe in every project tag, or even in every feature delivery.
+
+If it is taken in consideration other approaches to create software project documentation, it is possible to mention that the main pros 
+are the fact that documentation is done together with software development, the documentation format is simple, it is possible to link 
+documentation with software validation process, and the documentation is always aligned with the software behavior. As cons it is possible 
+mention that for initial setup it is necessary technical background and setup (which may delay initial software documentation), there are 
+tools easy to use that allows to document the software in not so technical approach and in a flexible way.
 
 ## Content sources
 
