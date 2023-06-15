@@ -9,9 +9,9 @@ name: CI with Gradle
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "feat/*" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "feat/*" ]
 
 permissions:
   contents: read
