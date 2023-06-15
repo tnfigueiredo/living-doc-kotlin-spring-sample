@@ -228,7 +228,8 @@ To being able to explore the project it is possible to have it on your favorite 
 [Eclipse](https://www.jhipster.tech/configuring-ide-eclipse-gradle/), [VSCode](https://code.visualstudio.com/docs/java/java-build)). Once you have the project on you favorite IDE 
 each of them have their own mechanisms to rum Gradle builds. Due to the previously presented build.gradle.kts configuration file 
 it is possible to run a simple Gradle build locally to check the application build results. Before running the Gradle build be sure of 
-having the properly Java version installed and configured on you local machine.
+having the properly Java version (Java 17) installed and configured on you local machine. All the other dependencies are the ones
+mentioned in the [Gradle dependencies](build.gradle.kts):
 
 On Linux machines:
 
