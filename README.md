@@ -1,9 +1,9 @@
 # living-doc-kotlin-spring-sample
 
 This project is a sample using Kotlin, Cucumber, Serenity and Gradle to show some features for a BDD approach
-to generate project business documentation into the SDLC (software development life cycle). The idea is to bring some 
-light about the chance of though the product versions delivery make it possible to have the business explained according
-to the testing validations done and the business requirements those validations are related to.
+to generate project business documentation into the SDLC (software development life cycle). The idea is to simulate product 
+versions delivery producing together business documentation and software deliverable that matches. All this through a BDD 
+approach to match both using acceptance criteria validations.
 
 To make it possible it was created a fictitious business scenario for a course center to illustrate an example of 
 this approach. Through the business definitions it proposes an organization of the topics similar to an Epic/User Stories
@@ -221,6 +221,30 @@ class CoursesManagementStepsDefinition {
     }
 }
 ```
+
+### Running the sample
+
+To being able to explore the project it is possible to have it on your favorite IDE ([IntelliJ](https://www.jetbrains.com/idea/guide/tutorials/working-with-gradle/opening-a-gradle-project/), 
+[Eclipse](https://www.jhipster.tech/configuring-ide-eclipse-gradle/), [VSCode](https://code.visualstudio.com/docs/java/java-build)). Once you have the project on you favorite IDE 
+each of them have their own mechanisms to rum Gradle builds. Due to the previously presented build.gradle.kts configuration file 
+it is possible to run a simple Gradle build locally to check the application build results. Before running the Gradle build be sure of 
+having the properly Java version installed and configured on you local machine.
+
+On Linux machines:
+
+```CONSOLE
+./gradlew build
+```
+
+On Windows Machines:
+
+```CONSOLE
+gradlew.bat build
+```
+
+In a Github repository it is easy to create a Gradle Github actions build configuration. In this repo there is an example on 
+[Github Gradle build actions file](https://github.com/tnfigueiredo/living-doc-kotlin-spring-sample/blob/master/.github/workflows/gradle.yml). 
+The following section shows how to evaluate the report results for a Gradle build.
 
 ### Project build and report results
 
