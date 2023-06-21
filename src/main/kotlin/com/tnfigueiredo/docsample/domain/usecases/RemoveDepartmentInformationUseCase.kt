@@ -1,7 +1,7 @@
 package com.tnfigueiredo.docsample.domain.usecases
 
 import com.tnfigueiredo.docsample.domain.model.Department
-import com.tnfigueiredo.docsample.domain.ports.DepartmentRepository
+import com.tnfigueiredo.docsample.domain.dataprovider.DepartmentRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 

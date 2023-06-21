@@ -1,4 +1,4 @@
-package com.tnfigueiredo.docsample.domain.ports
+package com.tnfigueiredo.docsample.domain.dataprovider
 
 import com.tnfigueiredo.docsample.domain.model.Department
 import org.springframework.data.jpa.repository.JpaRepository
