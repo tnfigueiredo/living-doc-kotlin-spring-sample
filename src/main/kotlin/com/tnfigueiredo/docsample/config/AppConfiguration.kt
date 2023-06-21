@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 import org.springframework.transaction.annotation.EnableTransactionManagement
 
 @Configuration
-@EnableJpaRepositories("com.tnfigueiredo.docsample.domain.ports")
+@EnableJpaRepositories("com.tnfigueiredo.docsample.domain.dataprovider")
 @EnableTransactionManagement
 class AppConfiguration {
 }
