@@ -321,3 +321,4 @@ tools easy to use that allows to document the software in not so technical appro
 - https://github.com/serenity-bdd
 - https://johnfergusonsmart.com/getting-started-with-serenity-bdd-and-cucumber-4/
 - https://stackoverflow.com/questions/59456120/cannot-run-cucumber-junit-tests-on-gradle
+- https://medium.com/luizalabs/descomplicando-a-clean-architecture-cf4dfc4a1ac6
