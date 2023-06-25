@@ -4,6 +4,7 @@
 :Department Administrator: as Admin
 :Department Officer: as Officer
 
+Admin -> (Manage Departments Subjects)
 Admin -> (Manage Departments)
 Admin -> (Manage Students)
 Officer -> (Manage Students)
