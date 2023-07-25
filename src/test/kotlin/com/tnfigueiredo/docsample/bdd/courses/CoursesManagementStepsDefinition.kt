@@ -22,6 +22,11 @@ class CoursesManagementStepsDefinition {
         //TODO Implement
     }
 
+    @When("it is modified the course information: {string}, {string}, {string}, {string}, {string}")
+    fun whenCourseInformationIsModified(courseName: String, courseCode: String, area: String, startDate: String, endDate: String){
+        //TODO Implement
+    }
+
     @And("there is an existing course: {string}, {string}, {string}, {string}, {string}")
     fun andExistingCourseAvailable(courseName: String, courseCode: String, area: String, startDate: String, endDate: String){
         //TODO Implement
@@ -34,6 +39,11 @@ class CoursesManagementStepsDefinition {
 
     @Then("a course is created successfully")
     fun thenCourseCreatedSuccessfully(){
+        //TODO Implement
+    }
+
+    @Then("a course is modified successfully")
+    fun thenCourseModifiedSuccessfully(){
         //TODO Implement
     }
 

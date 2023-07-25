@@ -32,7 +32,7 @@ dependencies {
 	testImplementation("net.serenity-bdd:serenity-cucumber:3.7.1")
 	testImplementation("net.serenity-bdd:serenity-junit5:3.7.1")
 	testImplementation("net.serenity-bdd:serenity-spring:3.7.1")
-	testImplementation("org.junit.vintage:junit-vintage-engine:5.9.2")
+	testImplementation("org.junit.vintage:junit-vintage-engine:5.9.3")
 	testImplementation("io.cucumber:cucumber-spring:7.11.0")
 	testImplementation("com.h2database:h2")
 }
