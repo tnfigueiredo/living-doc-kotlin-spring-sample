@@ -1,22 +1,14 @@
-Feature: Manage Department
+Feature: Create Department
 
-  The departments management handles the creation and deactivation of department information related to the MyFictitious Course Center. Everytime new areas are integrated to the company, new departments need to be managed.
+  The departments are created to manage subject and courses information related to the MyFictitious Course Center. Everytime new areas are integrated to the company, new departments are created.
 
   **As a** Departament Manager
   **I want to** create a new department
   **So that I can** have a department to manage subjects and courses
 
-  **As a** Departament Manager
-  **I want to** modify a department information
-  **So that I can** update a department data
-
-  **As a** Departament Manager
-  **I want to** deactivate an existing department
-  **So that I can** close a department activities for any reason
-
-    Background: For creating a department
-      Given A department administrator needs a new department
-      And There is an existing department already registered: "Old Department", "OLDDPTO"
+  Background: For creating a department
+    Given A department administrator needs a new department
+    And There is an existing department already registered: "Old Department", "OLDDPTO"
 
   Rule: To crate a department it is necessary to provide a name and an abbreviation. Name and abbreviation are unique information, since both information are needed to identify a department.
 
@@ -34,4 +26,3 @@ Feature: Manage Department
         | Name                | Abbreviation |
         | "Old Department"    | "NDPTONEW"   |
         | "My New Department" | "NDPTO"      |
-
