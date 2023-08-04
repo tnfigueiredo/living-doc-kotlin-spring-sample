@@ -45,28 +45,13 @@ class StudentsManagementStepsDefinition {
         //TODO Implement
     }
 
-    @When("the Studend request to suspend participation in a course: {string}")
-    fun whenStudentSelectCourseToSuspend(courseCode: String){
-        //TODO Implement
-    }
-
     @Then("the course fails to be cancelled")
     fun thenCourseCancellationFails(){
         //TODO Implement
     }
 
-    @Then("the course fails to be suspended")
-    fun thenCourseSuspensionFails(){
-        //TODO Implement
-    }
-
     @Then("the course is cancelled successfully")
     fun thenCourseIsCancelledSuccessfully(){
-        //TODO Implement
-    }
-
-    @Then("the course is suspended successfully")
-    fun thenCourseIsSuspendedSuccessfully(){
         //TODO Implement
     }
 
