@@ -6,10 +6,10 @@ plugins {
 	id("org.springframework.boot") version "3.0.2"
 	id("io.spring.dependency-management") version "1.1.0"
 	id("org.graalvm.buildtools.native") version "0.9.18"
-	id("net.serenity-bdd.serenity-gradle-plugin") version "3.5.0"
-	kotlin("jvm") version "1.7.22"
-	kotlin("plugin.spring") version "1.7.22"
-	kotlin("plugin.jpa") version "1.7.22"
+	id("net.serenity-bdd.serenity-gradle-plugin") version "4.0.14"
+	kotlin("jvm") version "1.9.0"
+	kotlin("plugin.spring") version "1.9.0"
+	kotlin("plugin.jpa") version "1.9.0"
 }
 
 group = "com.tnfigueiredo"
@@ -28,12 +28,12 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("net.serenity-bdd:serenity-core:3.7.1")
-	testImplementation("net.serenity-bdd:serenity-cucumber:3.7.1")
-	testImplementation("net.serenity-bdd:serenity-junit5:3.7.1")
-	testImplementation("net.serenity-bdd:serenity-spring:3.7.1")
-	testImplementation("org.junit.vintage:junit-vintage-engine:5.9.3")
-	testImplementation("io.cucumber:cucumber-spring:7.11.0")
+	testImplementation("net.serenity-bdd:serenity-core:4.0.21")
+	testImplementation("net.serenity-bdd:serenity-cucumber:4.0.21")
+	testImplementation("net.serenity-bdd:serenity-junit5:4.0.21")
+	testImplementation("net.serenity-bdd:serenity-spring:4.0.21")
+	testImplementation("org.junit.vintage:junit-vintage-engine:5.10.1")
+	testImplementation("io.cucumber:cucumber-spring:7.14.0")
 	testImplementation("com.h2database:h2")
 }
 
