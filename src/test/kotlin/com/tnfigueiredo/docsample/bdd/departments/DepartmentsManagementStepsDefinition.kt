@@ -93,12 +93,12 @@ class DepartmentsManagementStepsDefinition {
 
     @Then("a department subject is created successfully")
     fun thenDepartmentSubjectCreated(){
-        //TODO
+        assertTrue(false)
     }
 
     @Then("a department subject creation fails")
     fun thenDepartmentSubjectCreationFails(){
-        //TODO
+        assertTrue(false)
     }
 
     @Then("a department subject change its status to deactivated")
