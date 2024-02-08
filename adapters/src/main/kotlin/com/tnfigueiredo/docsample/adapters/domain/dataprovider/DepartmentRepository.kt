@@ -1,6 +1,6 @@
-package com.tnfigueiredo.docsample.domain.dataprovider
+package com.tnfigueiredo.docsample.adapters.domain.dataprovider
 
-import com.tnfigueiredo.docsample.domain.model.Department
+import com.tnfigueiredo.docsample.adapters.domain.model.Department
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

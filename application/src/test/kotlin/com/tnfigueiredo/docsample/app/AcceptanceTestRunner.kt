@@ -1,4 +1,4 @@
-package com.tnfigueiredo.docsample
+package com.tnfigueiredo.docsample.app
 
 import io.cucumber.junit.CucumberOptions
 import io.cucumber.spring.SpringFactory

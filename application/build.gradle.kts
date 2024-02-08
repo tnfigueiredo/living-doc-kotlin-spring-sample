@@ -3,24 +3,15 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 defaultTasks("clean", "test", "aggregate")
 
 plugins {
-	id("org.springframework.boot") version "3.0.2"
-	id("io.spring.dependency-management") version "1.1.0"
 	id("org.graalvm.buildtools.native") version "0.9.18"
 	id("net.serenity-bdd.serenity-gradle-plugin") version "4.0.14"
-	kotlin("jvm") version "1.9.0"
-	kotlin("plugin.spring") version "1.9.0"
-	kotlin("plugin.jpa") version "1.9.0"
-}
-
-group = "com.tnfigueiredo"
-version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_17
-
-repositories {
-	mavenCentral()
+	kotlin("jvm") version "1.9.22"
+	kotlin("plugin.spring") version "1.9.22"
+	kotlin("plugin.jpa") version "1.9.22"
 }
 
 dependencies {
+	implementation(project(":adapters"))
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.flywaydb:flyway-core")
@@ -37,15 +28,15 @@ dependencies {
 	testImplementation("com.h2database:h2")
 }
 
+tasks.withType<Test> {
+	useJUnitPlatform()
+	testLogging.showStandardStreams = true
+	finalizedBy("aggregate")
+}
+
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "17"
 	}
-}
-
-tasks.withType<Test> {
-	useJUnitPlatform()
-	testLogging.showStandardStreams = true
-	finalizedBy("aggregate")
 }

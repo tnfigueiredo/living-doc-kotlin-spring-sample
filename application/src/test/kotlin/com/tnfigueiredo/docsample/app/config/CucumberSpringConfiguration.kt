@@ -1,4 +1,4 @@
-package com.tnfigueiredo.docsample.config
+package com.tnfigueiredo.docsample.app.config
 
 import io.cucumber.spring.CucumberContextConfiguration
 import org.springframework.boot.test.context.SpringBootTest

@@ -1,10 +1,10 @@
-package com.tnfigueiredo.docsample.bdd.departments
+package com.tnfigueiredo.docsample.app.bdd.departments
 
-import com.tnfigueiredo.docsample.domain.model.Department
-import com.tnfigueiredo.docsample.domain.model.User.GeneralUser
-import com.tnfigueiredo.docsample.domain.model.UserProfile
-import com.tnfigueiredo.docsample.domain.usecases.RemoveDepartmentInformationUseCase
-import com.tnfigueiredo.docsample.domain.usecases.SaveDepartmentInformationUseCase
+import com.tnfigueiredo.docsample.adapters.domain.model.Department
+import com.tnfigueiredo.docsample.adapters.domain.model.User.GeneralUser
+import com.tnfigueiredo.docsample.adapters.domain.model.UserProfile
+import com.tnfigueiredo.docsample.adapters.domain.usecases.RemoveDepartmentInformationUseCase
+import com.tnfigueiredo.docsample.adapters.domain.usecases.SaveDepartmentInformationUseCase
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then

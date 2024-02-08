@@ -1,4 +1,4 @@
-package com.tnfigueiredo.docsample
+package com.tnfigueiredo.docsample.app
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

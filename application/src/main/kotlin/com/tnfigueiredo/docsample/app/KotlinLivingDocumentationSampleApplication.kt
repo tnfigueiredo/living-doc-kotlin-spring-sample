@@ -1,4 +1,4 @@
-package com.tnfigueiredo.docsample
+package com.tnfigueiredo.docsample.app
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

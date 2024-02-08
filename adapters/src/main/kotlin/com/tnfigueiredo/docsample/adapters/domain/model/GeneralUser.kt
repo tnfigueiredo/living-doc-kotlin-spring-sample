@@ -1,4 +1,4 @@
-package com.tnfigueiredo.docsample.domain.model
+package com.tnfigueiredo.docsample.adapters.domain.model
 
 enum class UserProfile{
     DEPARTMENT_ADMINISTRATOR,
