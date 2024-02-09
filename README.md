@@ -74,7 +74,7 @@ The project configuration and structure was created based on information found o
 repositories](https://github.com/serenity-bdd), and also other additional sources found on the web. The idea was to create the most clean and 
 minimum configuration needed to run the project to allow the report to be generated through an application build.
 
-Starting by the [Gradle dependencies](build.gradle.kts), it is possible to highlight the default tasks configuration, the serenity-gradle-plugin plugin, 
+Starting by the [Gradle dependencies](application/build.gradle.kts), it is possible to highlight the default tasks configuration, the serenity-gradle-plugin plugin, 
 and the set of dependencies itself. Among the dependencies, it was necessary the junit-vintage-engine because most of the implementation found for the 
 configuration classes were using JUnit4 structures. Without it this was not possible to run the tests integrated to the Gradle build. Besides that it was 
 necessary the test task configuration for running the aggregated step from the serenity plugin after the tests task execution. The resulting build Gradle 
@@ -229,7 +229,7 @@ To being able to explore the project it is possible to have it on your favorite 
 each of them have their own mechanisms to rum Gradle builds. Due to the previously presented build.gradle.kts configuration file 
 it is possible to run a simple Gradle build locally to check the application build results. Before running the Gradle build be sure of 
 having the properly Java version (Java 17) installed and configured on you local machine. All the other dependencies are the ones
-mentioned in the [Gradle dependencies](build.gradle.kts):
+mentioned in the [Gradle dependencies](application/build.gradle.kts):
 
 On Linux machines:
 
