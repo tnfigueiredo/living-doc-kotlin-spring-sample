@@ -9,15 +9,15 @@ bootJar.enabled = false
 jar.enabled = true
 
 plugins {
-    id("org.graalvm.buildtools.native") version "0.9.18"
     kotlin("jvm") version "1.9.22"
-    kotlin("plugin.spring") version "1.9.22"
-    kotlin("plugin.jpa") version "1.9.22"
 }
 
-dependencies{
-    implementation(project(":domain"))
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
 tasks.withType<KotlinCompile> {

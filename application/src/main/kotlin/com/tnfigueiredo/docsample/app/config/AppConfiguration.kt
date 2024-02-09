@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 import org.springframework.transaction.annotation.EnableTransactionManagement
 
 @Configuration
-@EnableJpaRepositories("com.tnfigueiredo.docsample.adapters.domain.dataprovider")
-@EntityScan("com.tnfigueiredo.docsample.adapters.domain.model")
+@EnableJpaRepositories("com.tnfigueiredo.docsample.adapters.dataprovider")
+@EntityScan("com.tnfigueiredo.docsample.adapters.entities")
 @ComponentScan(basePackages = ["com.tnfigueiredo.docsample.*"])
 @EnableTransactionManagement
 class AppConfiguration {

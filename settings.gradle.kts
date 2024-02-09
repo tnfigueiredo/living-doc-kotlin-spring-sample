@@ -4,3 +4,4 @@ plugins {
 rootProject.name = "living-doc-kotlin-spring-sample"
 include("application")
 include("adapters")
+include("domain")

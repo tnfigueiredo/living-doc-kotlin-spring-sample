@@ -1,4 +1,11 @@
-package com.tnfigueiredo.docsample.adapters.domain.model
+package com.tnfigueiredo.docsample.domain.model
+
+open class Department(
+    open val id: Int? = null,
+    open val name: String = "",
+    open val abbreviation: String = "",
+    open val creatorId: Int? = 1
+)
 
 enum class UserProfile{
     DEPARTMENT_ADMINISTRATOR,

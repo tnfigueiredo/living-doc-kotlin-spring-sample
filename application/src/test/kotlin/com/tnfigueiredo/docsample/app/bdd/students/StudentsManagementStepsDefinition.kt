@@ -1,6 +1,6 @@
 package com.tnfigueiredo.docsample.app.bdd.students
 
-import com.tnfigueiredo.docsample.adapters.domain.model.User.Student
+import com.tnfigueiredo.docsample.domain.model.User.Student
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then

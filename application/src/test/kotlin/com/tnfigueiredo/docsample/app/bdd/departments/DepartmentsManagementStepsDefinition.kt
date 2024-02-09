@@ -1,10 +1,11 @@
 package com.tnfigueiredo.docsample.app.bdd.departments
 
-import com.tnfigueiredo.docsample.adapters.domain.model.Department
-import com.tnfigueiredo.docsample.adapters.domain.model.User.GeneralUser
-import com.tnfigueiredo.docsample.adapters.domain.model.UserProfile
-import com.tnfigueiredo.docsample.adapters.domain.usecases.RemoveDepartmentInformationUseCase
-import com.tnfigueiredo.docsample.adapters.domain.usecases.SaveDepartmentInformationUseCase
+import com.tnfigueiredo.docsample.adapters.entities.DepartmentEntity
+import com.tnfigueiredo.docsample.domain.model.User.GeneralUser
+import com.tnfigueiredo.docsample.domain.model.UserProfile
+import com.tnfigueiredo.docsample.domain.usecases.RemoveDepartmentInformationUseCase
+import com.tnfigueiredo.docsample.domain.model.Department
+import com.tnfigueiredo.docsample.domain.usecases.SaveDepartmentInformationUseCase
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
@@ -21,8 +22,8 @@ class DepartmentsManagementStepsDefinition {
     @Autowired
     private lateinit var removeDepartmentInformationUseCase: RemoveDepartmentInformationUseCase
 
-    private var oldDepartment: Department? = null
-    private var department: Department? = null
+    private var oldDepartmentEntity: Department? = null
+    private var departmentEntity: Department? = null
     private lateinit var creator: GeneralUser
     private lateinit var exception: Throwable
 
@@ -38,9 +39,9 @@ class DepartmentsManagementStepsDefinition {
 
     @And("There is an existing department already registered: {string}, {string}")
     fun givenOldDepartmentAlreadyRegistered(departmentName: String, departmentAbbreviation: String){
-        oldDepartment = saveDepartmentInformationUseCase.execute(
+        oldDepartmentEntity = saveDepartmentInformationUseCase.execute(
             creator,
-            Department(name =  departmentName, abbreviation = departmentAbbreviation, creatorId = creator.id)
+            DepartmentEntity(name =  departmentName, abbreviation = departmentAbbreviation, creatorId = creator.id)
         ).getOrNull()
     }
 
@@ -51,8 +52,8 @@ class DepartmentsManagementStepsDefinition {
 
     @When("department data informed is not duplicated: {string}, {string}")
     fun whenDepartmentInformationIsNotDuplicated(departmentName: String, departmentAbbreviation: String){
-        department = saveDepartmentInformationUseCase.execute(
-            creator, Department(name =  departmentName, abbreviation = departmentAbbreviation, creatorId = creator.id)
+        departmentEntity = saveDepartmentInformationUseCase.execute(
+            creator, DepartmentEntity(name =  departmentName, abbreviation = departmentAbbreviation, creatorId = creator.id)
         ).getOrNull()!!
     }
 
@@ -60,7 +61,7 @@ class DepartmentsManagementStepsDefinition {
     fun whenDepartmentInformationIsDuplicated(departmentName: String, departmentAbbreviation: String){
         exception = saveDepartmentInformationUseCase.execute(
             creator,
-            Department(name =  departmentName, abbreviation = departmentAbbreviation, creatorId = creator.id)
+            DepartmentEntity(name =  departmentName, abbreviation = departmentAbbreviation, creatorId = creator.id)
         ).exceptionOrNull()!!
     }
 
@@ -81,9 +82,9 @@ class DepartmentsManagementStepsDefinition {
 
     @Then("a department is created successfully")
     fun thenDepartmentCreated(){
-        assertEquals(department?.name, "New Department")
-        assertEquals(department?.abbreviation,  "NDPTO")
-        assertEquals(department?.creatorId, creator.id)
+        assertEquals(departmentEntity?.name, "New Department")
+        assertEquals(departmentEntity?.abbreviation,  "NDPTO")
+        assertEquals(departmentEntity?.creatorId, creator.id)
     }
 
     @Then("department creation operation fails with duplicated information informed")
